@@ -1,0 +1,5 @@
+D:\Coding\WCFTest\WCFServicePilot101\bin\WCFServicePilot101.dll
+D:\Coding\WCFTest\WCFServicePilot101\bin\WCFServicePilot101.pdb
+D:\Coding\WCFTest\WCFServicePilot101\obj\Debug\WCFServicePilot101.dll
+D:\Coding\WCFTest\WCFServicePilot101\obj\Debug\WCFServicePilot101.pdb
+D:\Coding\WCFTest\WCFServicePilot101\obj\Debug\WCFServicePilot101.csprojResolveAssemblyReference.cache
