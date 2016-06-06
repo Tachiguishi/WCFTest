@@ -29,7 +29,7 @@
                 $.getJSON("/User.svc/GetPersonWithIBatis", {}, function(data) {
                     console.log(data.d.length);
                     for (var i = 0; i < data.d.length; i++) {
-                        console.log("ID:" + data.d[i].ID + " Name:" + data.d[i].Name);
+                        console.log("Id:" + data.d[i].Id + " Name:" + data.d[i].Name);
                     }
                 });
             });

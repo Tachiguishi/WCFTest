@@ -50,8 +50,13 @@
     <Compile Include="iPersonDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="lib\" />
+    <EmbeddedResource Include="iPerson.xml" />
+    <Content Include="lib\IBatisNet.Common.dll" />
+    <Content Include="lib\IBatisNet.Common.xml" />
+    <Content Include="lib\IBatisNet.DataMapper.dll" />
+    <Content Include="lib\IBatisNet.DataMapper.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
