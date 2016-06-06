@@ -3,3 +3,9 @@ D:\Coding\WCFTest\WCFServicePilot101\bin\WCFServicePilot101.pdb
 D:\Coding\WCFTest\WCFServicePilot101\obj\Debug\WCFServicePilot101.dll
 D:\Coding\WCFTest\WCFServicePilot101\obj\Debug\WCFServicePilot101.pdb
 D:\Coding\WCFTest\WCFServicePilot101\obj\Debug\WCFServicePilot101.csprojResolveAssemblyReference.cache
+D:\Coding\WCFTest\WCFServicePilot101\bin\iBatisDomain.dll
+D:\Coding\WCFTest\WCFServicePilot101\bin\IBatisNet.Common.dll
+D:\Coding\WCFTest\WCFServicePilot101\bin\IBatisNet.DataMapper.dll
+D:\Coding\WCFTest\WCFServicePilot101\bin\iBatisDomain.pdb
+D:\Coding\WCFTest\WCFServicePilot101\bin\IBatisNet.Common.xml
+D:\Coding\WCFTest\WCFServicePilot101\bin\IBatisNet.DataMapper.xml

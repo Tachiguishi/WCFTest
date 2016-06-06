@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServicePilot101", "WCFServicePilot101\WCFServicePilot101.csproj", "{1E547DE1-509A-4BBC-8D45-96B0392587C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBatisDomain", "iBatisDomain\iBatisDomain.csproj", "{EFE3CFAB-FB7E-4E23-9843-745FFC097F9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{1E547DE1-509A-4BBC-8D45-96B0392587C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E547DE1-509A-4BBC-8D45-96B0392587C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E547DE1-509A-4BBC-8D45-96B0392587C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE3CFAB-FB7E-4E23-9843-745FFC097F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE3CFAB-FB7E-4E23-9843-745FFC097F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE3CFAB-FB7E-4E23-9843-745FFC097F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE3CFAB-FB7E-4E23-9843-745FFC097F9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.ServiceModel.Activation;
+using iBatisDomain;
+using IBatisNet.DataMapper;
 
 namespace WCFServicePilot101
 {
@@ -27,6 +29,13 @@ namespace WCFServicePilot101
         {
             return new List<Person>(){new Person{ID = 1, Name = "Nux"},
                    new Person{ID = 2, Name = "Furiosa"}};
+        }
+
+        public IList<iPerson> GetPersonWithIBatis()
+        {
+            iPersonDao dao = new iPersonDao();
+            IList<iPerson> ListPerson = dao.GetList();
+            return ListPerson;
         }
     }
 }

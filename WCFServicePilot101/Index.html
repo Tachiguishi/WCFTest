@@ -8,6 +8,7 @@
     <p>
        <button id="getOnePerson" type="button">Get One Person</button>
        <button id="getPersons" type="button">Get Persons</button>
+       <button id="getIBatis" type="button">Get Ibatis</button>
     </p>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -21,6 +22,14 @@
                     alert(data.d.length);
                     for (var i = 0; i < data.d.length; i++) {
                         alert("ID:" + data.d[i].ID + " Name:" + data.d[i].Name);
+                    }
+                });
+            });
+            $('#getIBatis').click(function() {
+                $.getJSON("/User.svc/GetPersonWithIBatis", {}, function(data) {
+                    console.log(data.d.length);
+                    for (var i = 0; i < data.d.length; i++) {
+                        console.log("ID:" + data.d[i].ID + " Name:" + data.d[i].Name);
                     }
                 });
             });

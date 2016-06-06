@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.ServiceModel.Web;
+using iBatisDomain;
 
 namespace WCFServicePilot101
 {
@@ -26,5 +27,9 @@ namespace WCFServicePilot101
         [WebGet]
         // [WebInvoke]
         string ShowName(string name);
+
+        [OperationContract]
+        [WebGet]
+        IList<iPerson> GetPersonWithIBatis();
     }
 }

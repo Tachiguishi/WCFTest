@@ -1,0 +1,9 @@
+D:\Coding\WCFTest\iBatisDomain\obj\Debug\iBatisDomain.csprojResolveAssemblyReference.cache
+D:\Coding\WCFTest\iBatisDomain\bin\Debug\iBatisDomain.dll
+D:\Coding\WCFTest\iBatisDomain\bin\Debug\iBatisDomain.pdb
+D:\Coding\WCFTest\iBatisDomain\bin\Debug\IBatisNet.Common.dll
+D:\Coding\WCFTest\iBatisDomain\bin\Debug\IBatisNet.DataMapper.dll
+D:\Coding\WCFTest\iBatisDomain\bin\Debug\IBatisNet.Common.xml
+D:\Coding\WCFTest\iBatisDomain\bin\Debug\IBatisNet.DataMapper.xml
+D:\Coding\WCFTest\iBatisDomain\obj\Debug\iBatisDomain.dll
+D:\Coding\WCFTest\iBatisDomain\obj\Debug\iBatisDomain.pdb
