@@ -31,5 +31,9 @@ namespace WCFServicePilot101
         [OperationContract]
         [WebGet]
         IList<iPerson> GetPersonWithIBatis();
+
+        [OperationContract]
+        [WebGet]
+        IList<Device> getDevice(string equID);
     }
 }

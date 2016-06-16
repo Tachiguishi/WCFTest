@@ -37,5 +37,14 @@ namespace WCFServicePilot101
             IList<iPerson> ListPerson = dao.GetList();
             return ListPerson;
         }
+
+        public IList<Device> getDevice(string equID)
+        {
+            Device equ = new Device();
+            equ.EquID = equID;
+            DeviceDao dao = new DeviceDao();
+            IList<Device> ListDevice = dao.GetList(equ);
+            return ListDevice;
+        }
     }
 }

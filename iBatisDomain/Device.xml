@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="iDevice" xmlns="http://ibatis.apache.org/mapping" xmlns:xls="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <!-- alias:是别名，type:[命名空间.类名,命名空间] -->
+        <typeAlias alias="Device" type="iBatisDomain.Device,iBatisDomain" />
+    </alias>
+    <resultMaps>
+        <resultMap id="DeviceMap" class="Device">
+            <result property="EquID" column="EQU_ID"/>
+            <result property="EquName" column="EQU_NAME"/>
+            <result property="Category" column="CATEGORY"/>
+            <result property="EquLabel" column="EQU_LABEL"/>
+            <result property="EquType" column="EQU_TYPE"/>
+            <result property="Container" column="CONTAINER"/>
+            <result property="EquArea" column="EQU_AREA"/>
+            <result property="DocNO" column="DOC_NO"/>
+            <result property="DocName" column="DOC_NAME"/>
+            <result property="DocPath" column="DOC_PATH"/>
+            <result property="RealPage" column="REAL_PAGE"/>
+            <result property="CircuitNO" column="Circuit_NO"/>
+        </resultMap>
+    </resultMaps>
+  <statements>
+    <select id="query" parameterClass="System.Collections.IDictionary" resultMap="DeviceMap">
+      SELECT
+      p.EQU_ID,
+      EQU_NAME,
+      CATEGORY,
+      EQU_LABEL,
+      EQU_TYPE,
+      CONTAINER,
+      EQU_AREA,
+      p.DOC_NO,  
+      d.DOC_NAME,
+      d.DOC_PATH,
+      g.REAL_PAGE,
+      c.Circuit_NO
+      FROM  PDMS.PD_DATA_DEVICE p
+      left join PDMS.PD_DOC_PATTERN d on d.DOC_NO = p.DOC_NO
+      Left join PDMS.PD_DATA_CIRCUIT c on c.EQU_ID = p.EQU_ID
+      Left join PDMS.PD_DOC_PAGE g on g.DOC_NO = p.DOC_NO AND g.RECORD_PAGE = p.REAL_PAGE
+      WHERE 1=1
+      <isNotEmpty prepend=" AND " property="EquID">
+        p.EQU_ID LIKE '%$EquID$%'
+      </isNotEmpty>
+      <!-- <isNotEmpty prepend=" AND " property="EquName">
+        EQU_NAME LIKE '%$EquName$%'
+      </isNotEmpty>
+      <isNotEmpty prepend=" AND " property="EquLabel">
+        EQU_LABEL LIKE '%$EquLabel$%'
+      </isNotEmpty>
+      <isNotEmpty prepend=" AND " property="EquType">
+        EQU_TYPE LIKE '%$EquType$%'
+      </isNotEmpty>
+      <isNotEmpty prepend=" AND " property="Container">
+        CONTAINER LIKE '%$Container$%'
+      </isNotEmpty>
+      <isNotEmpty prepend=" AND " property="EquArea">
+        EQU_AREA LIKE '%$EquArea$%'
+      </isNotEmpty>
+      <isNotEmpty prepend=" AND " property="DocNO">
+        p.DOC_NO LIKE '%$DocNO$%'
+      </isNotEmpty> -->
+      ORDER BY CATEGORY
+    </select>
+  </statements>
+</sqlMap>

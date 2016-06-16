@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Device.cs" />
+    <Compile Include="DeviceDao.cs" />
     <Compile Include="iPerson.cs" />
     <Compile Include="iPersonDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +55,7 @@
   <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="iPerson.xml" />
+    <EmbeddedResource Include="Device.xml" />
     <Content Include="lib\IBatisNet.Common.dll" />
     <Content Include="lib\IBatisNet.Common.xml" />
     <Content Include="lib\IBatisNet.DataMapper.dll" />
