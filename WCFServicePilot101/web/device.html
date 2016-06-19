@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap-social.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,7 +29,17 @@
       <button id="query" type="button" class="btn btn-primary">查询</button>
     </div>
   </div>
+  <table id="result">
+    <thead>
+      <th>EquID</th>
+      <th>名称</th>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
   <script type="text/javascript" src="js/jquery-1.12.0.js"></script>
+  <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
       $('#query').click(function() {
@@ -37,6 +48,14 @@
           for(var n=0;n<data.d.length;n++){
             console.log("ID:" + data.d[n].EquID + " Name:" + data.d[n].EquName);
           }
+          var jsonData = JSON.stringify(data.d);
+          $('#result').DataTable({
+            data:data.d,
+            columns:[
+              {data:'EquID'},
+              {data:'EquName'}
+            ]
+          });
         });
       });
     });
