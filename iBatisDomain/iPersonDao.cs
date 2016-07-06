@@ -8,10 +8,10 @@ namespace iBatisDomain
 {
     public class iPersonDao
     {
-        public IList<iPerson> GetList()
+        public IList<iPerson> GetPerson(iPerson person)
         {
             ISqlMapper mapper = Mapper.Instance();
-            IList<iPerson> ListPerson = mapper.QueryForList<iPerson>("Ibatis.SelectAllPerson", null);  //这个"SelectAllPerson"就是xml映射文件的Id
+            IList<iPerson> ListPerson = mapper.QueryForList<iPerson>("PersonSQL.query2", person);
             return ListPerson;
         }
 

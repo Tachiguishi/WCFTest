@@ -1,4 +1,4 @@
-﻿<!DOCTYPE>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -6,15 +6,24 @@
 </head>
 <body>
     <p>
-       <button id="getOnePerson" type="button">Get One Person</button>
+       <button id="getPerson" type="button">Get Person</button>
        <button id="getPersons" type="button">Get Persons</button>
        <button id="getIBatis" type="button">Get Ibatis</button>
     </p>
+    <div id="result" class="content">
+    </div>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#getOnePerson').click(function() {
-                $.getJSON("/User.svc/GetOnePerson", {}, function(data) {
-                    alert("ID:" + data.d.ID + " Name:" + data.d.Name);
+            $('#getPerson').click(function() {
+                $.getJSON("/User.svc/GetPerson", {}, function(data) {
+                    for (var i = 0; i < data.d.length; i++) {
+                        console.log("Id:" + data.d[i].UserID +
+                                    " Name:" + data.d[i].UserName +
+                                    " Birthday:" + Date(data.d[i].Birthday.replace(/\D/igm, "")));
+                        $('<li/>').html(data.d[i].UserID).appendTo('#result');
+                        $('<li/>').html(data.d[i].UserName).appendTo('#result');
+                        $('<li/>').html(Date(data.d[i].Birthday.replace(/\D/igm, ""))).appendTo('#result');
+                    }
                 });
             });
             $('#getPersons').click(function() {
@@ -34,6 +43,10 @@
                 });
             });
         });
+
+        function parseJsonDate(date){
+
+        }
     </script>
 </body>
 </html>

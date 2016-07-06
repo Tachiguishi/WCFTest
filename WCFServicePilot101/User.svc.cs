@@ -20,9 +20,13 @@ namespace WCFServicePilot101
             return wcfName;
         }
 
-        public Person GetOnePerson()
+        public IList<iPerson> GetPerson()
         {
-            return new Person {ID = 1, Name = "goDie"};
+            iPersonDao dao = new iPersonDao();
+            iPerson person = new iPerson();
+            person = null;
+            IList<iPerson> ListPerson = dao.GetPerson(person);
+            return ListPerson;
         }
 
         public List<Person> GetPersons(int id, string name)
@@ -33,8 +37,8 @@ namespace WCFServicePilot101
 
         public IList<iPerson> GetPersonWithIBatis()
         {
-            iPersonDao dao = new iPersonDao();
-            IList<iPerson> ListPerson = dao.GetList();
+            //iPersonDao dao = new iPersonDao();
+            IList<iPerson> ListPerson = null;// dao.GetPerson();
             return ListPerson;
         }
 

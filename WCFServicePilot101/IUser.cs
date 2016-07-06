@@ -16,7 +16,7 @@ namespace WCFServicePilot101
         [OperationContract]
         [WebGet]
         // [WebInvoke]
-        Person GetOnePerson();
+        IList<iPerson> GetPerson();
 
         [OperationContract]
         [WebGet]

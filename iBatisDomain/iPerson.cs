@@ -7,8 +7,18 @@ namespace iBatisDomain
 {
     public class iPerson
     {
-        public int Id { set; get; }
+        public string UserID { set; get; }
 
-        public string Name { set; get; }
+        public string UserName { set; get; }
+
+        public string Password {set; get;}
+
+        public DateTime Birthday {set; get;}
+
+        public int Gender {set; get;}
+
+        public string Email {set; get;}
+
+        public string Phone {set; get;}
     }
 }
