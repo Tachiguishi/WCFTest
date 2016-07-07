@@ -33,7 +33,7 @@ public class iPerson
 }
 ```
 
-### 3. sql语句
+### 3. SQL映射
 ```sql
 <?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="PersonSQL" xmlns="http://ibatis.apache.org/mapping" xmlns:xls="http://www.w3.org/2001/XMLSchema-instance">

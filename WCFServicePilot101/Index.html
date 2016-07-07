@@ -1,30 +1,67 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <script type="text/javascript" src="jquery.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index</title>
+  <link rel="stylesheet" type="text/css" href="web/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="web/css/bootstrap-theme.css">
+  <link href="web/css/font-awesome.min.css" rel="stylesheet">
+  <link href="web/css/bootstrap-social.css" rel="stylesheet">
+  <script type="text/javascript" src="jquery.js"></script>
 </head>
 <body>
-    <p>
-       <button id="getPerson" type="button">Get Person</button>
-       <button id="getPersons" type="button">Get Persons</button>
-       <button id="getIBatis" type="button">Get Ibatis</button>
-    </p>
-    <div id="result" class="content">
+  <div class="container">
+    <div class="row row-content">
+      <form class="form-horizontal" role="from">
+        <div class="form-group col-xs-12 col-sm-10">
+          <label class="col-xs-12 col-sm-3 control-label" for="userName">用户昵称</label>
+          <div class="col-xs-12 col-sm-8">
+            <input class=" form-control" id="userName" placeholder="昵称">
+          </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-10">
+        <button id="getPerson" type="button">Get Person</button>
+        <button id="getPersons" type="button">Get Persons</button>
+        <button id="getIBatis" type="button">Get Ibatis</button>
+        </div>
+      </form>
     </div>
+    <div id="result" class="row row-content">
+    </div>
+  </div>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#getPerson').click(function() {
-                $.getJSON("/User.svc/GetPerson", {}, function(data) {
-                    for (var i = 0; i < data.d.length; i++) {
-                        console.log("Id:" + data.d[i].UserID +
-                                    " Name:" + data.d[i].UserName +
-                                    " Birthday:" + Date(data.d[i].Birthday.replace(/\D/igm, "")));
-                        $('<li/>').html(data.d[i].UserID).appendTo('#result');
-                        $('<li/>').html(data.d[i].UserName).appendTo('#result');
-                        $('<li/>').html(Date(data.d[i].Birthday.replace(/\D/igm, ""))).appendTo('#result');
-                    }
-                });
+              var userName = $('#userName').val();
+              $.ajax({
+                url: '/User.svc/GetPerson',
+                data: '{"name": "'+userName+'"}',
+                type: 'post',
+                dataType:'json',
+                contentType:'text/json',    //一定是字符串json，不能为application/json
+                success:function(data){
+                  for (var i = 0; i < data.d.length; i++) {
+                    console.log("Id:" + data.d[i].UserID +
+                                " Name:" + data.d[i].UserName +
+                                " Birthday:" + data.d[i].Birthday);
+                    $('<li/>').html(data.d[i].UserID).appendTo('#result');
+                    $('<li/>').html(data.d[i].UserName).appendTo('#result');
+                    $('<li/>').html(data.d[i].Birthday).appendTo('#result');
+                  }
+                }
+              });
+              //$.post方式在参数传递中一直不成功，修改多种json数据格式均无法调用
+              // $.post("/User.svc/GetPerson", {"name":"userName"}, function(data) {
+              //     for (var i = 0; i < data.d.length; i++) {
+              //         console.log("Id:" + data.d[i].UserID +
+              //                     " Name:" + data.d[i].UserName +
+              //                     " Birthday:" + data.d[i].Birthday);
+              //         $('<li/>').html(data.d[i].UserID).appendTo('#result');
+              //         $('<li/>').html(data.d[i].UserName).appendTo('#result');
+              //         $('<li/>').html(data.d[i].Birthday).appendTo('#result');
+              //     }
+              // });
             });
             $('#getPersons').click(function() {
                 $.getJSON("/User.svc/GetPersons", { id: 100, name: "from clent" }, function(data) {
