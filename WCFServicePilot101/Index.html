@@ -34,9 +34,17 @@
         $(document).ready(function() {
             $('#getPerson').click(function() {
               var userName = $('#userName').val();
+              var person = {};
+              person.UserID = "Ken";
+              person.UserName = "肯";
+              person.Birthday = "/Date(643305600000+0800)/";
+              person.Gender =1;
+              person.Email = "ahfi@goo.com";
+              person.Phone = "1354773";
+              var jsonData = JSON.stringify({'person':person});
               $.ajax({
                 url: '/User.svc/GetPerson',
-                data: '{"name": "'+userName+'"}',
+                data: jsonData, //'{"name": "'+userName+'"}',
                 type: 'post',
                 dataType:'json',
                 contentType:'text/json',    //一定是字符串json，不能为application/json

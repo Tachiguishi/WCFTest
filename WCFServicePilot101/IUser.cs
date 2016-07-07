@@ -15,7 +15,7 @@ namespace WCFServicePilot101
         [OperationContract]
         // [WebGet]
         [WebInvoke(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        IList<iPerson> GetPerson(string name);
+        IList<iPerson> GetPerson(iPerson person);
 
         [OperationContract]
         [WebGet]

@@ -19,10 +19,10 @@ namespace WCFServicePilot101
             return wcfName;
         }
 
-        public IList<iPerson> GetPerson(string name)
+        public IList<iPerson> GetPerson(iPerson person)
         {
             iPersonDao dao = new iPersonDao();
-            iPerson person = new iPerson();
+            // iPerson person = new iPerson();
             person = null;
             IList<iPerson> ListPerson = dao.GetPerson(person);
             return ListPerson;
