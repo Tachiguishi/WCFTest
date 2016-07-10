@@ -9,6 +9,7 @@
   <link href="web/css/font-awesome.min.css" rel="stylesheet">
   <link href="web/css/bootstrap-social.css" rel="stylesheet">
   <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="web/js/jsonDate.js"></script>
 </head>
 <body>
   <div class="container">
@@ -36,26 +37,28 @@
               var userName = $('#userName').val();
               var person = {};
               person.UserID = "Ken";
-              person.UserName = "肯";
-              person.Birthday = "/Date(643305600000+0800)/";
+              person.UserName = userName;
+              person.Birthday = new Date();"/Date(643305600000+0800)/";
               person.Gender =1;
               person.Email = "ahfi@goo.com";
               person.Phone = "1354773";
-              var jsonData = JSON.stringify({'person':person});
+              //var jsonData = JSON.stringify({'person':person});
+              var jsonData1 = JSON.stringifyWcf({'person':person});
+              console.log(person.Birthday);
               $.ajax({
                 url: '/User.svc/GetPerson',
-                data: jsonData, //'{"name": "'+userName+'"}',
+                data: jsonData1, //'{"name": "'+userName+'"}', 一定是字符串json，不能为json对象
                 type: 'post',
                 dataType:'json',
-                contentType:'text/json',    //一定是字符串json，不能为application/json
+                contentType:"application/json; charset=utf-8",//'text/json', 两种方法都可以，但不知道在老版本浏览器中的支持情况
                 success:function(data){
                   for (var i = 0; i < data.d.length; i++) {
                     console.log("Id:" + data.d[i].UserID +
                                 " Name:" + data.d[i].UserName +
-                                " Birthday:" + data.d[i].Birthday);
+                                " Birthday:" + JSON.dateStringToDate(data.d[i].Birthday));
                     $('<li/>').html(data.d[i].UserID).appendTo('#result');
                     $('<li/>').html(data.d[i].UserName).appendTo('#result');
-                    $('<li/>').html(data.d[i].Birthday).appendTo('#result');
+                    $('<li/>').html(JSON.dateStringToDate(data.d[i].Birthday).toString()).appendTo('#result');
                   }
                 }
               });
