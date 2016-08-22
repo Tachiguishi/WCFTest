@@ -23,8 +23,8 @@ if (JSON && !JSON.parseWithDate) {
                     a = reMsAjax.exec(value);
                     if (a) {
                         var b = +a[1];
-                        if(a[2]){
-                            b = b - a[2]/100*3600*1000;
+                        if(a[2]){                           //包含时区信息
+                            b = b - a[2]/100*3600*1000;     //修正时区信息
                         }
                         return new Date(b);
                     }
@@ -90,8 +90,8 @@ var dateReviver = function (key, value){
         a = reMsAjax.exec(value);
         if (a) {
             var b = +a[1];
-            if(a[2]){
-                b = b - a[2]/100*3600*1000;
+            if(a[2]){                                   //包含时区信息
+                b = b - a[2]/100*3600*1000;             //修正时区信息
             }
             return new Date(b);
         }
